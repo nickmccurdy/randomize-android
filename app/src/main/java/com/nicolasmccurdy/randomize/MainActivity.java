@@ -94,6 +94,8 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
+        String[] tabNames = getResources().getStringArray(R.array.tab_names);
+
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
@@ -112,28 +114,16 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 
         @Override
         public int getCount() {
-            // Show 6 total pages.
-            return 6;
+            return tabNames.length;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
-            Locale l = Locale.getDefault();
-            switch (position) {
-                case 0:
-                    return getString(R.string.title_section1).toUpperCase(l);
-                case 1:
-                    return getString(R.string.title_section2).toUpperCase(l);
-                case 2:
-                    return getString(R.string.title_section3).toUpperCase(l);
-                case 3:
-                    return getString(R.string.title_section4).toUpperCase(l);
-                case 4:
-                    return getString(R.string.title_section5).toUpperCase(l);
-                case 5:
-                    return getString(R.string.title_section6).toUpperCase(l);
+            try {
+                return tabNames[position].toUpperCase(Locale.getDefault());
+            } catch (ArrayIndexOutOfBoundsException _) {
+                return null;
             }
-            return null;
         }
     }
 

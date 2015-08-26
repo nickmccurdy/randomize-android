@@ -1,10 +1,12 @@
 <resources>
     <string name="app_name">Randomize</string>
 
-    <string name="title_section1">Dice</string>
-    <string name="title_section2">Coins</string>
-    <string name="title_section3">Cards</string>
-    <string name="title_section4">Numbers</string>
-    <string name="title_section5">From List</string>
-    <string name="title_section6">Sort List</string>
+    <string-array name="tab_names">
+        <item>Dice</item>
+        <item>Coins</item>
+        <item>Cards</item>
+        <item>Numbers</item>
+        <item>From List</item>
+        <item>Sort List</item>
+    </string-array>
 </resources>
