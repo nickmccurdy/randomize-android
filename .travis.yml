@@ -8,4 +8,4 @@ android:
     - android-23
 
     # Additional components
-    - com.android.support:support-v13:23.0.0
+    - support-v13:23.0.0
