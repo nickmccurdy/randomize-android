@@ -5,4 +5,4 @@ android:
     - build-tools-23.0.0
 
     # The SDK version used to compile your project
-    - android-19
+    - android-23
