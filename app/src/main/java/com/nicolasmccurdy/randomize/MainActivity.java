@@ -120,7 +120,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
         @Override
         public CharSequence getPageTitle(int position) {
             try {
-                return tabNames[position].toUpperCase(Locale.getDefault());
+                return tabNames[position];
             } catch (ArrayIndexOutOfBoundsException _) {
                 return null;
             }
@@ -145,7 +145,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            TextView dummyTextView = (TextView) rootView.findViewById(R.id.section_label);
+            TextView dummyTextView = (TextView) rootView.findViewById(R.id.results);
             dummyTextView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
             return rootView;
         }
