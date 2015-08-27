@@ -25,12 +25,12 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
      * may be best to switch to a
      * {@link android.support.v13.app.FragmentStatePagerAdapter}.
      */
-    SectionsPagerAdapter mSectionsPagerAdapter;
+    private SectionsPagerAdapter mSectionsPagerAdapter;
 
     /**
      * The {@link ViewPager} that will host the section contents.
      */
-    ViewPager mViewPager;
+    private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,7 +94,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
-        String[] tabNames = getResources().getStringArray(R.array.tab_names);
+        final String[] tabNames = getResources().getStringArray(R.array.tab_names);
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
