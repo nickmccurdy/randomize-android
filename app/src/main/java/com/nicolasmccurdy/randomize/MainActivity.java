@@ -106,6 +106,8 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
                 return new CoinsSectionFragment();
             } else if (position == 2) {
                 return new CardsSectionFragment();
+            } else if (position == 3) {
+                return new NumbersSectionFragment();
             } else {
                 return new HelloWorldSectionFragment();
             }
@@ -168,6 +170,13 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
             int suitIndex = random.nextInt(SUITS.length);
 
             resultsView.setText(RANKS[rankIndex] + " of " + SUITS[suitIndex]);
+        }
+    }
+
+    public static class NumbersSectionFragment extends AbstractSectionFragment {
+        @Override
+        public void reload() {
+            resultsView.setText(Integer.toString(random.nextInt(10) + 1));
         }
     }
 
