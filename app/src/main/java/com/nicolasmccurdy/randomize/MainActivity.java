@@ -11,10 +11,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
-
-import java.util.Random;
 
 public class MainActivity extends Activity implements ActionBar.TabListener {
 
@@ -127,57 +124,17 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
         }
     }
 
-    public static class DiceSectionFragment extends Fragment {
-        Random random = new Random();
-
-        TextView resultsView;
-
+    public static class DiceSectionFragment extends AbstractSectionFragment {
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            resultsView = (TextView) rootView.findViewById(R.id.results);
-
-            Button button = (Button) rootView.findViewById(R.id.reload_button);
-            button.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View view) {
-                    reload();
-                }
-            });
-
-            reload();
-            return rootView;
-        }
-
         public void reload() {
             resultsView.setText(Integer.toString(random.nextInt(6) + 1));
         }
     }
 
-    public static class CoinsSectionFragment extends Fragment {
-        Random random = new Random();
-
-        TextView resultsView;
-
+    public static class CoinsSectionFragment extends AbstractSectionFragment {
         static final String[] SIDES = { "heads", "tails" };
 
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            resultsView = (TextView) rootView.findViewById(R.id.results);
-
-            Button button = (Button) rootView.findViewById(R.id.reload_button);
-            button.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View view) {
-                    reload();
-                }
-            });
-
-            reload();
-            return rootView;
-        }
-
         public void reload() {
             int sideIndex = random.nextInt(SIDES.length);
             resultsView.setText(SIDES[sideIndex]);
