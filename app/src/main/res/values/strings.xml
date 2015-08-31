@@ -6,7 +6,7 @@
         <item>Coins</item>
         <item>Cards</item>
         <item>Numbers</item>
-        <item>From List</item>
-        <item>Sort List</item>
+        <item>Pick</item>
+        <item>Shuffle</item>
     </string-array>
 </resources>
