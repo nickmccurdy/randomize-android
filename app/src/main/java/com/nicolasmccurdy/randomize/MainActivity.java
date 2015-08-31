@@ -100,16 +100,12 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 
         @Override
         public Fragment getItem(int position) {
-            if (position == 0) {
-                return new DiceSectionFragment();
-            } else if (position == 1) {
-                return new CoinsSectionFragment();
-            } else if (position == 2) {
-                return new CardsSectionFragment();
-            } else if (position == 3) {
-                return new NumbersSectionFragment();
-            } else {
-                return new HelloWorldSectionFragment();
+            switch (position) {
+                case 0:  return new DiceSectionFragment();
+                case 1:  return new CoinsSectionFragment();
+                case 2:  return new CardsSectionFragment();
+                case 3:  return new NumbersSectionFragment();
+                default: return new HelloWorldSectionFragment();
             }
         }
 
