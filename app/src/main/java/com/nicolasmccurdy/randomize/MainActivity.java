@@ -11,7 +11,10 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.Random;
 
 public class MainActivity extends Activity implements ActionBar.TabListener {
 
@@ -100,8 +103,11 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 
         @Override
         public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            return new HelloWorldSectionFragment();
+            if (position == 0) {
+                return new DiceSectionFragment();
+            } else {
+                return new HelloWorldSectionFragment();
+            }
         }
 
         @Override
@@ -116,6 +122,33 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
             } catch (ArrayIndexOutOfBoundsException _) {
                 return null;
             }
+        }
+    }
+
+    public static class DiceSectionFragment extends Fragment {
+        Random random = new Random();
+
+        TextView resultsView;
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            resultsView = (TextView) rootView.findViewById(R.id.results);
+
+            Button button = (Button) rootView.findViewById(R.id.reload_button);
+            button.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    reload();
+                }
+            });
+
+            reload();
+            return rootView;
+        }
+
+        public void reload() {
+            resultsView.setText(Integer.toString(random.nextInt(6) + 1));
         }
     }
 
