@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.util.Random;
 
 public abstract class AbstractSectionFragment extends Fragment {
-    Random random = new Random();
+    final Random random = new Random();
 
     TextView resultsView;
 
