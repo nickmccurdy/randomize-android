@@ -104,6 +104,8 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
                 return new DiceSectionFragment();
             } else if (position == 1) {
                 return new CoinsSectionFragment();
+            } else if (position == 2) {
+                return new CardsSectionFragment();
             } else {
                 return new HelloWorldSectionFragment();
             }
@@ -138,6 +140,34 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
         public void reload() {
             int sideIndex = random.nextInt(SIDES.length);
             resultsView.setText(SIDES[sideIndex]);
+        }
+    }
+
+    public static class CardsSectionFragment extends AbstractSectionFragment {
+        static final String[] RANKS = {
+                "ace",
+                "two",
+                "three",
+                "four",
+                "five",
+                "six",
+                "seven",
+                "eight",
+                "nine",
+                "ten",
+                "jack",
+                "queen",
+                "king"
+        };
+
+        static final String[] SUITS = { "hearts", "diamonds", "clubs", "spades" };
+
+        @Override
+        public void reload() {
+            int rankIndex = random.nextInt(RANKS.length);
+            int suitIndex = random.nextInt(SUITS.length);
+
+            resultsView.setText(RANKS[rankIndex] + " of " + SUITS[suitIndex]);
         }
     }
 
