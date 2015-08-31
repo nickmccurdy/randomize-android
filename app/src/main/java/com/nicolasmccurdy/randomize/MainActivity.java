@@ -105,6 +105,8 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
         public Fragment getItem(int position) {
             if (position == 0) {
                 return new DiceSectionFragment();
+            } else if (position == 1) {
+                return new CoinsSectionFragment();
             } else {
                 return new HelloWorldSectionFragment();
             }
@@ -149,6 +151,36 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 
         public void reload() {
             resultsView.setText(Integer.toString(random.nextInt(6) + 1));
+        }
+    }
+
+    public static class CoinsSectionFragment extends Fragment {
+        Random random = new Random();
+
+        TextView resultsView;
+
+        static final String[] SIDES = { "heads", "tails" };
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            resultsView = (TextView) rootView.findViewById(R.id.results);
+
+            Button button = (Button) rootView.findViewById(R.id.reload_button);
+            button.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    reload();
+                }
+            });
+
+            reload();
+            return rootView;
+        }
+
+        public void reload() {
+            int sideIndex = random.nextInt(SIDES.length);
+            resultsView.setText(SIDES[sideIndex]);
         }
     }
 
