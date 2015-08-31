@@ -13,6 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public class MainActivity extends Activity implements ActionBar.TabListener {
 
     /**
@@ -105,6 +110,8 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
                 case 1:  return new CoinsSectionFragment();
                 case 2:  return new CardsSectionFragment();
                 case 3:  return new NumbersSectionFragment();
+                case 4:  return new PickSectionFragment();
+                case 5:  return new ShuffleSectionFragment();
                 default: return new HelloWorldSectionFragment();
             }
         }
@@ -173,6 +180,26 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
         @Override
         public void reload() {
             resultsView.setText(Integer.toString(random.nextInt(10) + 1));
+        }
+    }
+
+    public static class PickSectionFragment extends AbstractSectionFragment {
+        static final String [] FAB_FOUR = { "John", "Paul", "George", "Ringo" };
+
+        @Override
+        public void reload() {
+            resultsView.setText(FAB_FOUR[random.nextInt(FAB_FOUR.length)]);
+        }
+    }
+
+    public static class ShuffleSectionFragment extends AbstractSectionFragment {
+        static final String [] FAB_FOUR = { "John", "Paul", "George", "Ringo" };
+
+        @Override
+        public void reload() {
+            List<String> fabFourList = Arrays.asList(FAB_FOUR);
+            Collections.shuffle(fabFourList, random);
+            resultsView.setText(fabFourList.toString());
         }
     }
 
