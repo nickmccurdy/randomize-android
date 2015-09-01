@@ -34,5 +34,9 @@ public abstract class AbstractSectionFragment extends Fragment {
         return rootView;
     }
 
-    abstract void reload();
+    abstract String generate();
+
+    void reload() {
+        resultsView.setText(generate());
+    }
 }

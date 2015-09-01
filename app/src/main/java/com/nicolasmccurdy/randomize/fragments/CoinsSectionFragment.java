@@ -4,8 +4,8 @@ public class CoinsSectionFragment extends AbstractSectionFragment {
     private static final String[] SIDES = {"heads", "tails"};
 
     @Override
-    public void reload() {
+    public String generate() {
         int sideIndex = random.nextInt(SIDES.length);
-        resultsView.setText(SIDES[sideIndex]);
+        return SIDES[sideIndex];
     }
 }

@@ -20,10 +20,10 @@ public class CardsSectionFragment extends AbstractSectionFragment {
     private static final String[] SUITS = {"hearts", "diamonds", "clubs", "spades"};
 
     @Override
-    public void reload() {
+    public String generate() {
         int rankIndex = random.nextInt(RANKS.length);
         int suitIndex = random.nextInt(SUITS.length);
 
-        resultsView.setText(RANKS[rankIndex] + " of " + SUITS[suitIndex]);
+        return RANKS[rankIndex] + " of " + SUITS[suitIndex];
     }
 }
