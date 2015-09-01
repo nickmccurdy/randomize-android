@@ -8,14 +8,14 @@ import android.app.FragmentTransaction;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import com.nicolasmccurdy.randomize.fragments.CardsSectionFragment;
+import com.nicolasmccurdy.randomize.fragments.CoinsSectionFragment;
+import com.nicolasmccurdy.randomize.fragments.DiceSectionFragment;
+import com.nicolasmccurdy.randomize.fragments.HelloWorldSectionFragment;
+import com.nicolasmccurdy.randomize.fragments.NumbersSectionFragment;
+import com.nicolasmccurdy.randomize.fragments.PickSectionFragment;
+import com.nicolasmccurdy.randomize.fragments.ShuffleSectionFragment;
 
 public class MainActivity extends Activity implements ActionBar.TabListener {
 
@@ -127,89 +127,6 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
             } catch (ArrayIndexOutOfBoundsException _) {
                 return null;
             }
-        }
-    }
-
-    public static class DiceSectionFragment extends AbstractSectionFragment {
-        @Override
-        public void reload() {
-            resultsView.setText(Integer.toString(random.nextInt(6) + 1));
-        }
-    }
-
-    public static class CoinsSectionFragment extends AbstractSectionFragment {
-        static final String[] SIDES = { "heads", "tails" };
-
-        @Override
-        public void reload() {
-            int sideIndex = random.nextInt(SIDES.length);
-            resultsView.setText(SIDES[sideIndex]);
-        }
-    }
-
-    public static class CardsSectionFragment extends AbstractSectionFragment {
-        static final String[] RANKS = {
-                "ace",
-                "two",
-                "three",
-                "four",
-                "five",
-                "six",
-                "seven",
-                "eight",
-                "nine",
-                "ten",
-                "jack",
-                "queen",
-                "king"
-        };
-
-        static final String[] SUITS = { "hearts", "diamonds", "clubs", "spades" };
-
-        @Override
-        public void reload() {
-            int rankIndex = random.nextInt(RANKS.length);
-            int suitIndex = random.nextInt(SUITS.length);
-
-            resultsView.setText(RANKS[rankIndex] + " of " + SUITS[suitIndex]);
-        }
-    }
-
-    public static class NumbersSectionFragment extends AbstractSectionFragment {
-        @Override
-        public void reload() {
-            resultsView.setText(Integer.toString(random.nextInt(10) + 1));
-        }
-    }
-
-    public static class PickSectionFragment extends AbstractSectionFragment {
-        static final String [] FAB_FOUR = { "John", "Paul", "George", "Ringo" };
-
-        @Override
-        public void reload() {
-            resultsView.setText(FAB_FOUR[random.nextInt(FAB_FOUR.length)]);
-        }
-    }
-
-    public static class ShuffleSectionFragment extends AbstractSectionFragment {
-        static final String [] FAB_FOUR = { "John", "Paul", "George", "Ringo" };
-
-        @Override
-        public void reload() {
-            List<String> fabFourList = Arrays.asList(FAB_FOUR);
-            Collections.shuffle(fabFourList, random);
-            resultsView.setText(fabFourList.toString());
-        }
-    }
-
-    public static class HelloWorldSectionFragment extends Fragment {
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            TextView dummyTextView = (TextView) rootView.findViewById(R.id.results);
-            dummyTextView.setText("Hello, world!");
-            return rootView;
         }
     }
 
