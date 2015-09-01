@@ -17,6 +17,6 @@
         android:layout_height="wrap_content"
         android:text="@string/reload"
         android:id="@+id/reload_button"
-        android:drawableLeft="@drawable/ic_refresh_black_24dp"/>
+        android:drawableStart="@drawable/ic_refresh_black_24dp"/>
 
 </LinearLayout>
