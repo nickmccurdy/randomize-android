@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class ShuffleSectionFragment extends AbstractSectionFragment {
-    static final String[] FAB_FOUR = {"John", "Paul", "George", "Ringo"};
+    private static final String[] FAB_FOUR = {"John", "Paul", "George", "Ringo"};
 
     @Override
     public void reload() {

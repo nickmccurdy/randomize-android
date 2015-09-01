@@ -1,7 +1,7 @@
 package com.nicolasmccurdy.randomize.fragments;
 
 public class CoinsSectionFragment extends AbstractSectionFragment {
-    static final String[] SIDES = {"heads", "tails"};
+    private static final String[] SIDES = {"heads", "tails"};
 
     @Override
     public void reload() {

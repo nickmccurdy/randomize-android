@@ -1,7 +1,7 @@
 package com.nicolasmccurdy.randomize.fragments;
 
 public class CardsSectionFragment extends AbstractSectionFragment {
-    static final String[] RANKS = {
+    private static final String[] RANKS = {
             "ace",
             "two",
             "three",
@@ -17,7 +17,7 @@ public class CardsSectionFragment extends AbstractSectionFragment {
             "king"
     };
 
-    static final String[] SUITS = {"hearts", "diamonds", "clubs", "spades"};
+    private static final String[] SUITS = {"hearts", "diamonds", "clubs", "spades"};
 
     @Override
     public void reload() {
