@@ -12,7 +12,6 @@ import android.support.v7.widget.Toolbar;
 import com.nicolasmccurdy.randomize.fragments.CardsSectionFragment;
 import com.nicolasmccurdy.randomize.fragments.CoinsSectionFragment;
 import com.nicolasmccurdy.randomize.fragments.DiceSectionFragment;
-import com.nicolasmccurdy.randomize.fragments.HelloWorldSectionFragment;
 import com.nicolasmccurdy.randomize.fragments.NumbersSectionFragment;
 import com.nicolasmccurdy.randomize.fragments.PickSectionFragment;
 import com.nicolasmccurdy.randomize.fragments.ShuffleSectionFragment;
@@ -63,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 case 3:  return new NumbersSectionFragment();
                 case 4:  return new PickSectionFragment();
                 case 5:  return new ShuffleSectionFragment();
-                default: return new HelloWorldSectionFragment();
+                default: return null;
             }
         }
 
