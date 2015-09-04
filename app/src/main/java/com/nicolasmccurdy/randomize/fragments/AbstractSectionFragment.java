@@ -12,10 +12,10 @@ import com.nicolasmccurdy.randomize.R;
 
 import java.util.Random;
 
-public abstract class AbstractSectionFragment extends Fragment {
+abstract class AbstractSectionFragment extends Fragment {
     final Random random = new Random();
 
-    TextView resultsView;
+    private TextView resultsView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,9 +34,9 @@ public abstract class AbstractSectionFragment extends Fragment {
         return rootView;
     }
 
-    abstract String generate();
+    protected abstract String generate();
 
-    void reload() {
+    private void reload() {
         resultsView.setText(generate());
     }
 }
