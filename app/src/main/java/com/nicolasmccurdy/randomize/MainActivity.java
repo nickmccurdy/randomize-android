@@ -2,13 +2,16 @@ package com.nicolasmccurdy.randomize;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
+import com.nicolasmccurdy.randomize.fragments.AbstractSectionFragment;
 import com.nicolasmccurdy.randomize.fragments.CardsSectionFragment;
 import com.nicolasmccurdy.randomize.fragments.CoinsSectionFragment;
 import com.nicolasmccurdy.randomize.fragments.DiceSectionFragment;
@@ -32,13 +35,24 @@ public class MainActivity extends AppCompatActivity {
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         viewPager.setAdapter(sectionsPagerAdapter);
 
         // Set up the TabLayout with the ViewPager.
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+
+        // Set up the FloatingActionButton to trigger reloads.
+        FloatingActionButton button = (FloatingActionButton) findViewById(R.id.reload_button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String fragmentTag = "android:switcher:" + R.id.pager + ":" + viewPager.getCurrentItem();
+                AbstractSectionFragment currentSectionFragment = (AbstractSectionFragment) getFragmentManager().findFragmentByTag(fragmentTag);
+                currentSectionFragment.reload();
+            }
+        });
     }
 
     /**

@@ -5,15 +5,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.nicolasmccurdy.randomize.R;
 
 import java.util.Random;
 
-abstract class AbstractSectionFragment extends Fragment {
-    final Random random = new Random();
+public abstract class AbstractSectionFragment extends Fragment {
+    static final Random random = new Random();
 
     private TextView resultsView;
 
@@ -23,20 +22,13 @@ abstract class AbstractSectionFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
         resultsView = (TextView) rootView.findViewById(R.id.results);
 
-        Button button = (Button) rootView.findViewById(R.id.reload_button);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                reload();
-            }
-        });
-
         reload();
         return rootView;
     }
 
     protected abstract String generate();
 
-    private void reload() {
+    public void reload() {
         resultsView.setText(generate());
     }
 }
